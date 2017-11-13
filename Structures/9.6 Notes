@@ -1,0 +1,106 @@
+# Array
+- Ordered Collection
+- Indices
+- Fixed size
+
+## Array Methods
+- length
+- get
+- set
+
+# Set
+- Unique
+- Unordered (Not neccesarily ordered)
+
+## Theres a line between `interface` and `implementation`
+
+## Set Interface
+- add(int i)
+- remove(int i)
+- isFull()
+
+```java
+public class BasicIntSet {
+	private int[] values = new int[10];
+	private int nextItem = 0;
+
+	public void add(int i) {
+		values[nextItem] = i;
+		nextItem++;
+	}
+
+}
+```
+
+# add function has Big O of O(1). 
+- if it needs to check unique, then 
+
+```java
+public class BasicIntSet {
+	private int[] values = new int[10];
+	private int nextItem = 0;
+
+	public void add(int i) {
+		if(!contains(i)) {
+			values[nextItem] = i;
+			nextItem++;
+		}
+	}
+
+	public boolean isFull() {
+		return nextItem == values.length;
+	}
+
+	private int indexOf(int c) {
+		for(int i=0; i<nextItem; i++) {
+			if(values[i] == c)
+				return i;
+		}
+		return -1;
+	}
+
+	public boolean contains(int c) {
+		return indexOf(c) != -1;
+	}
+
+	public void remove(int r) {
+		int i = indexOf(r);
+		if(i != -1) {
+			for(int k=i; k<nextItem; k++) {
+				values[k] = values[k+1];
+			}
+		}
+		nextItem--;
+	}
+
+}
+```
+
+# List
+- Ordered
+- variable length
+- random access
+
+## List Interface
+- add(String)
+- remove(index)
+- remove(String)
+- get(index)
+- contains
+- indexOf
+- set(index, String)
+- add(index, String)
+- clear()
+- isEmpty()
+- ensureCapacity()
+
+```java
+private void ensureCapacity() {
+	if(nextItem == values.length)
+		int temp = new int[values.length * 2 +1]
+		System.arraycopy(values, 0, temp, 0, values.length);
+		values = temp;
+}
+```
+
+

@@ -1,0 +1,45 @@
+# Big O
+- Measure of efficiency 
+- O(1), O(n), O(log n), O(n^3), O(n!), O(2^n)
+
+## size method O(1)
+no dependence on the number of values.
+
+## add method O(n)
+usually its O(1), but when you ensure capacity it is O(n)
+for the insert, it is also O(n)
+
+# Stack
+- push
+- pop
+- peek (get top of stack)
+- size
+
+## Linking
+- Node
+	(Object value)
+	Node next
+
+```java
+public class Stack<T> {
+	private class Node<T> {
+		private T value;
+		private Node<T> next;
+	}
+	private Node<T> head = null;
+	private int size = 0;
+
+	public void push(T thing) {
+		if(head == null) {
+			head = new Node<T>();
+			head.value = thing;
+		} else {
+			Node n = new Node<T>();
+			n.next - head;
+			head = n;
+		}
+		size++;
+	}
+}
+```
+

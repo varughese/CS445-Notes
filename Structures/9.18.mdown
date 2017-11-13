@@ -1,0 +1,7 @@
+```java
+String a = "ABC";
+String b = "ABC";
+System.out.print(a == b);
+```
+
+Will print true cuz strings constants point to same spot;

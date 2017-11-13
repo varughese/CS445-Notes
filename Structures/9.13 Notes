@@ -1,0 +1,102 @@
+```java
+public class Stack<T> {
+	private int size = 0;
+	private Node<T> head;
+
+	private class Node<T> {
+		private T value;
+		private Node next;
+
+		public Node() {
+		}
+
+		public Node(T value) {
+			this.value = value;
+			// Stack.this refers to Stack
+		}
+
+		public Node(T value, Node<T> next) {
+			this(value) 
+			// YOU CAN ONLY CALL THIS AS A CONSTRUCTOR ON THE FIRST LINE
+			this.next = next;
+		}
+	}
+
+	public void push(T value) {
+		if(isEmpty()) {
+			head = new Node<T>(value);
+		} else {
+			head = new Node<T>(value, head);
+		}
+		size++;
+	}
+
+	public T peek() {
+		return head.getValue();
+	}
+
+	public boolean isEmpty() {
+		return head == null;
+	}
+
+	public T pop() {
+		T result = peek();
+		head = head.getNext();
+		size--;
+		return result;
+	}
+}
+```
+
+
+```java
+public class LinkedList<T> {
+	private class Node {};
+	private Node<T> head;
+	private int size;
+
+	public void add(T value) {
+		if(head == null) {
+			head = new Node<T>(value);
+		} else {
+			Node current = head;
+			while(current.hasNext()) {
+				current = current.getNext();
+			}
+			current.setNext(new Node<T>(value));
+		}
+	}
+
+	public void clear() {
+		head = null;
+		size = 0;
+	}
+
+	public T get(int index) {
+		if(index >= size) throw new IndexOutOfBounds();
+
+		Node current = head;
+		for(int i=0; i<index; i++) {
+			current = current.getNext();
+		}
+		return current.getValue();
+	}
+
+	public T remove(int index) {
+		T result;
+		if(index == 0) {
+			result = head.getValue();
+			head = head.getNext();
+			size--;
+		} else {
+			result = getNodeAt(index-1);
+			
+		}
+		return result;
+		size--;
+	}
+
+	// finalize method: you can instruct java how to clean things up by the garbage collector
+
+}
+```

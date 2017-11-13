@@ -1,0 +1,70 @@
+``` java
+public void add(T thing) {
+	if(isEmpty()) {
+		head = tail = Node<T> n = new Node<T>(thing, head);
+	} else {
+		Node<T> n = new Node<T>(thing);
+		tail.setNext(n);
+		tail = n;
+	}
+	size++;
+}
+```
+
+# Since we have a tail we have to focus on changing the tail
+## this happens when
+- remove(size() - 1)
+- remove(thing)
+
+```java
+public T remove(int index) {
+	// have to check the head and stuff
+	Node<T> n = getNodeAt(index - 1);
+	if(n.getNext() == tail) {
+		n.setNext(null);
+		tail = n;
+	}
+}
+```
+```java
+public void add(int index, T thing) {
+	if(isEmpty()) {
+		if(index == 0) {
+			add(thing)
+		} else {
+			throw new IndexOutOfBoundsException("---");
+		}
+	} else if(index = size) {
+		add(thing);
+	} else {
+		if(index == 0) {
+			head = new Node<T>(thing, head);
+		} else {
+			Node<T> n = getNodeAt(index-1);
+			Node<T> newNode = new Node<T>(thing, n.getNext());
+			n.setNext(newNode);
+		}
+		size++;
+	}
+}
+```
+
+# Array List  [ Find = Easy   | Insert = Hard]
+# Linked List [ Insert = Easy | Find = Hard  ]
+
+---
+
+# Queues
+
+### Stack (LIFO)
+### Queues (FIFO)
+
+## add end O(1)
+## remove beginning (1)
+
+### add --> enqueue
+### remove --> dequeue
+
+- If first = next it is FULL or EMPTY
+
+## array slot costs 4 bytes #randomknowledge

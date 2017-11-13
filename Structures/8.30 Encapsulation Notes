@@ -1,0 +1,21 @@
+- Public
+- Private
+- Protected
+
+
+# Public: ANyone that has it can access it
+
+# Protected: It can be modified in subclasses (and in the same package)
+
+# Dont use “Default” access
+
+
+```java
+public class Container {
+	protected int myThing;
+	public int getMyThing() {
+
+	}
+}
+```
+
