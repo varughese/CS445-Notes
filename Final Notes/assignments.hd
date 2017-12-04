@@ -1,0 +1,74 @@
+# Assigmnets
+
+Heapsort algorithm
+1. Have a heap
+-- Iterate and put everything into place / aka swap with parent if parent is less than child
+-- new Heap(array);
+2. Remove everything
+-- Swap top and last
+-- Move new top downward until in right place
+
+
+look up heapsort
+[12], 4, 9, 1, 2, 7 | 8
+8 , 4, 9, 
+
+Binary tree is a directed graph
+
+# Traversal
+
+L, C, R 
+
+Go left on the tree until you cant, print, then go all the way right.
+
+Depth First Search
+- go deep to look
+
+Breadth First Search
+- use a queue
+- add center, left, right
+- take off center, and treat left as center
+
+to create an iterator for the tree
+- to start at the root, add left child until no longer add anything else. then everything you remove something
+
+```java
+private void addToStack(Stack<TreeNode> s, TreeNode current) {
+	s.add(current);
+	if(current.hasLeftChild()) {
+		addToStack(s, current.getLeftChild());
+	}
+}
+```
+
+
+Iterator
+- constructor
+-- start with root, add to stack
+
+- hasNext
+-- stack.isEmpty()
+
+- next
+-- take top of stack
+-- addToStack (top right child)
+-- return top of stack value
+
+
+# Graphs
+Undirected graph
+If we do BFS and dont have a *visited* value, then we would go A->B->A->B->A->B
+
+From design purity standpoint, having *visited* be in a set is better because it doesnt manipulate data.
+
+Traversal: 
+Queue: identify next steps
+Map: Bread crumb trail
+
+Map will map vertex to how we got there
+
+Start:
+-Current = A
+-Add Neighbors to our Queue
+-Next neighbor in queue becomes current
+-Add next neighbor to old current to map

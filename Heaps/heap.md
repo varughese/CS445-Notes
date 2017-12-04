@@ -20,3 +20,6 @@ Child (index) index * 2 + 1 or index * 2 + 2
 Parent (index) (index - 1) / 2
 
 
+---
+
+Heap you dont care about finding things, you care about getting the next thing
